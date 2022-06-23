@@ -4,7 +4,8 @@
   "description": "Meraki Dashboard API Express server with basic Vue JS demo",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon"
   },
   "keywords": [
     "Cisco",
@@ -21,6 +22,7 @@
     "global-request-logger": "^0.1.1",
     "json-bigint": "^0.2.3",
     "morgan": "^1.9.0",
+    "nodemon": "^2.0.16",
     "request": "^2.83.0"
   }
 }
