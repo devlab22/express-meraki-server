@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "description": "Meraki Dashboard API Express server with basic Vue JS demo",
   "main": "server.js",
+  "bin": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon"
+    "dev": "nodemon",
+    "start": "npm start"
   },
   "keywords": [
     "Cisco",
@@ -23,6 +25,16 @@
     "json-bigint": "^0.2.3",
     "morgan": "^1.9.0",
     "nodemon": "^2.0.16",
+    "pkg": "^5.8.0",
     "request": "^2.83.0"
-  }
+  },
+  "pkg": {
+    "scripts" : [
+         "config.js",
+         "server.js",
+         "request-meraki.js"
+       ],
+    "assets": "public/**/*",
+    "outputPath": "dist"
+   }
 }
