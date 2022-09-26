@@ -102,7 +102,7 @@ app.use("/api", cors(corsOptions), jsonParser, function(req, res) {
 });
 
 // Home page, default route
-app.use("/", cors(corsOptions), express.static(path.join(__dirname, "public")));
+app.use("/", cors(corsOptions), express.static(path.join(__dirname, "public", "index.html")));
 
 // Start server
 var port = process.env.PORT || 8085;
