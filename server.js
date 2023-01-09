@@ -9,6 +9,7 @@ Supports redirects with custom request-meraki function.
 
 // External Configuration File
 var configs = require("./configs.js");
+const dirname = process.cwd();
 
 /* Local Configuration alternative
 var configs = {
@@ -28,6 +29,7 @@ var cors = require("cors");
 
 var app = (module.exports = express());
 
+app.use(express.static(path.join(dirname, 'public')));
 var corsOptions = {
   origin: "*",
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
@@ -85,6 +87,8 @@ app.use("/api", cors(corsOptions), jsonParser, function(req, res) {
     }
   };
 
+  console.log(options)
+
   requestMeraki(options, function(err, response, data) {
     if (err) {
       console.log("requestMeraki err ", err);
@@ -102,7 +106,7 @@ app.use("/api", cors(corsOptions), jsonParser, function(req, res) {
 });
 
 // Home page, default route
-app.use("/", cors(corsOptions), express.static(path.join(__dirname, "public", "index.html")));
+app.get("/", cors(corsOptions), express.static(path.join(dirname, "public", "index.html")));
 
 // Start server
 var port = process.env.PORT || 8085;
